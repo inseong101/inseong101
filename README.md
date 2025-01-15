@@ -8,3 +8,5 @@
 - 🌿 M.S. Korean Medicine, PNU 
 - 💻 Beginner in Coidng
 - 📈 I enjoy learning new technology.
+  
+Not a Gosu yet, just a Chobo
