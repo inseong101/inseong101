@@ -5,14 +5,14 @@ Sub JPG()
 Dim i&, s As ChartObject, 학번$, sht As Worksheet, tgt As Worksheet, r As Range
 Set sht = Sheets("성적통지표"): Set tgt = ActiveSheet: Set r = tgt.Range("A1:AK50")
 For i = 1 To 120
-  학번 = sht.Cells(i, 1)
+  학번 = sht.Cells(i, 1)  ' 1열이란 뜻입니다. A1부터 A120까지 학번 붙여넣고 하얀글자로 숨기세요
   If 학번 <> "" Then
-    tgt.Range("AG2:AH3") = 학번
+    tgt.Range("AG2:AH3") = 학번 '학번이 들어갈 셀을 안에 넣으세요. 통합셀이면 범위로 넣으세요
     r.CopyPicture xlPrinter, xlPicture
     Application.Wait Now + TimeValue("0:00:01")
     Set s = tgt.ChartObjects.Add(0, 0, r.Width * 3, r.Height * 3)
     s.Chart.ChartArea.Select: s.Chart.Paste
-    s.Chart.Export "C:\2. 모의고사 결과분석\성적표캡쳐\" & 학번 & ".png", "PNG"
+    s.Chart.Export "C:\2. 모의고사 결과분석\성적표캡쳐\" & 학번 & ".png", "PNG" '120장의 파일을 자동 저장할 곳을 경로 복사 하세요 맨 끝에 \붙이셔야 그 폴더 안으로 저장됩니다
     s.Delete
   End If
 Next
