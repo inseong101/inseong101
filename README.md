@@ -4,23 +4,18 @@
 MACRO CODE
 <pre><code>
 Sub JPG()
-    Dim i As Long, s As ChartObject, 학번 As String
-    Dim sht As Worksheet, tgt As Worksheet, r As Range
-    Set sht = Sheets("채점기 (1차)"): Set tgt = ActiveSheet
-    Set r = tgt.Range("A1:AN55")
-    
-    For i = 8 To 127
-        학번 = Format(sht.Cells(i, 2), "000000")
-        If 학번 <> "" Then
-            tgt.Range("AK3:AL4") = 학번
-            r.CopyPicture xlPrinter, xlPicture
-            Application.Wait Now + TimeValue("0:00:01")
-            Set s = tgt.ChartObjects.Add(0, 0, r.Width * 3, r.Height * 3)
-            s.Chart.ChartArea.Select: s.Chart.Paste
-            s.Chart.Export "C:\Users\김문주\OneDrive - pusan.ac.kr\바탕 화면\성적표캡차\" & 학번 & ".png", "PNG"
-            s.Delete
-        End If
-    Next
+Dim i&, s As ChartObject, 학번$, r As Range
+Set r = [A1:AK50]
+For i = 1 To 120
+  학번 = Sheets("성적통지표").Cells(i, 1)
+  If 학번 <> "" Then
+    [AG2:AH3] = 학번
+    r.CopyPicture xlPrinter, xlPicture
+    Application.Wait Now + TimeValue("0:00:01")
+    Set s = ActiveSheet.ChartObjects.Add(0, 0, r.Width * 3, r.Height * 3)
+    s.Chart.Paste: s.Chart.Export "C:\Users\김문주\OneDrive - pusan.ac.kr\바탕 화면\성적표캡차\" & 학번 & ".png", "PNG": s.Delete
+  End If
+Next
 End Sub
 </code></pre>
 MACRO CODE
