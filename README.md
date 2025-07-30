@@ -2,7 +2,7 @@
 
 
 MACRO CODE
-<pre><code>```vbnet
+<pre><code>```
 
     
 Sub JPG()
