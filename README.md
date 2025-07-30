@@ -2,9 +2,7 @@
 
 
 MACRO CODE
-<pre><code>```
-
-    
+<pre><code>
 Sub JPG()
     Dim i As Long, s As ChartObject, 학번 As String
     Dim sht As Worksheet, tgt As Worksheet, r As Range
@@ -24,7 +22,6 @@ Sub JPG()
         End If
     Next
 End Sub
-
 ```</code></pre>
 MACRO CODE
 
