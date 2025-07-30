@@ -4,16 +4,18 @@
 MACRO CODE
 <pre><code>
 Sub JPG()
-Dim i&, s As ChartObject, 학번$, r As Range
-Set r = [A1:AK50]
+Dim i&, s As ChartObject, 학번$, sht As Worksheet, tgt As Worksheet, r As Range
+Set sht = Sheets("성적통지표"): Set tgt = ActiveSheet: Set r = tgt.Range("A1:AK50")
 For i = 1 To 120
-  학번 = Sheets("성적통지표").Cells(i, 1)
+  학번 = sht.Cells(i, 1)
   If 학번 <> "" Then
-    [AG2:AH3] = 학번
+    tgt.Range("AG2:AH3") = 학번
     r.CopyPicture xlPrinter, xlPicture
     Application.Wait Now + TimeValue("0:00:01")
-    Set s = ActiveSheet.ChartObjects.Add(0, 0, r.Width * 3, r.Height * 3)
-    s.Chart.Paste: s.Chart.Export "C:\Users\김문주\OneDrive - pusan.ac.kr\바탕 화면\성적표캡차\" & 학번 & ".png", "PNG": s.Delete
+    Set s = tgt.ChartObjects.Add(0, 0, r.Width * 3, r.Height * 3)
+    s.Chart.ChartArea.Select: s.Chart.Paste
+    s.Chart.Export "C:\Users\김문주\OneDrive - pusan.ac.kr\바탕 화면\성적표캡차\" & 학번 & ".png", "PNG"
+    s.Delete
   End If
 Next
 End Sub
