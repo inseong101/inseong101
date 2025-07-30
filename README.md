@@ -2,7 +2,7 @@
 
 
 MACRO CODE
-
+For
 ###
 Sub JPG()
     Dim i As Long, s As ChartObject, 학번 As String
