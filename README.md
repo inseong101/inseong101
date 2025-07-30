@@ -6,7 +6,6 @@ Sub JPG()
     Dim sht As Worksheet, tgt As Worksheet, r As Range
     Set sht = Sheets("채점기 (1차)"): Set tgt = ActiveSheet
     Set r = tgt.Range("A1:AN55")
-
     For i = 8 To 127
         학번 = Format(sht.Cells(i, 2), "000000")
         If 학번 <> "" Then
